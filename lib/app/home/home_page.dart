@@ -1,3 +1,4 @@
+import 'package:bloc/app/home/search_cep_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -11,29 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final textController = TextEditingController();
 
-  var isLoading = false;
-  String? error;
-  var cepResult = {};
-
-  Future<void> searchCep(String cep) async {
-    try {
-      cepResult = {};
-      error = null;
-      setState(() {
-        isLoading = true;
-      });
-
-      final response = await Dio().get("https://viacep.com.br/ws/$cep/json/");
-      setState(() {
-        cepResult = response.data;
-      });
-    } catch (e) {
-      error = "Erro na pesquisa";
-    }
-    setState(() {
-      isLoading = false;
-    });
-  }
+  final searchCepBloc = SearchCepBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -55,20 +34,41 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                searchCep(textController.text);
+                searchCepBloc.searchCep.add(textController.text);
               },
               child: const Text("Pesquisar"),
             ),
             const SizedBox(height: 20),
-            if (isLoading)
-              const Expanded(
-                  child: Center(
-                child: CircularProgressIndicator(),
-              )),
-            if (error != null)
-              Text(error!, style: const TextStyle(color: Colors.red)),
-            if (!isLoading && cepResult.isNotEmpty)
-              Text("Cidade ${cepResult['localidade']}")
+            StreamBuilder<SearchCepState>(
+                stream: searchCepBloc.cepResult,
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return Container();
+                  }
+
+                  var state = snapshot.data;
+
+                  if (state is SearchCepError) {
+                    return Text("${snapshot.error}",
+                        style: const TextStyle(color: Colors.red));
+                  }
+
+                  if (state is SearchCepLoading) {
+                    return const Expanded(
+                        child: Center(
+                      child: CircularProgressIndicator(),
+                    ));
+                  }
+
+                  state = state as SearchCepSuccess;
+
+                  return Text("Cidade ${state.data['localidade']}");
+                }),
+            // if (searchCepBloc.isLoading)
+            //   const Expanded(
+            //       child: Center(
+            //     child: CircularProgressIndicator(),
+            //   )),
           ],
         ),
       ),
