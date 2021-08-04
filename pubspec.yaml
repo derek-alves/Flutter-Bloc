@@ -1,4 +1,4 @@
-name: bloc
+name: bloc_flutter
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -31,11 +31,16 @@ dependencies:
     sdk: flutter
   dio: ^4.0.0
   rxdart: ^0.27.1
+  
+  
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_bloc: ^7.1.0
+  provider: ^5.0.0
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +56,8 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter.
+# The following section is specific to 
+
 flutter:
 
   # The following line ensures that the Material Icons font is
