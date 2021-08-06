@@ -1,16 +1,33 @@
-# bloc
+# Flutter + bloc + testes unitários + injeção de dependência + git hooks 
 
-A new Flutter project.
+Projeto com a finalidade de estudar e entender melhor esses conceitos/ferramentas
 
-## Getting Started
+> ###  **BLoC**
+- BLoC é a sigla para Business Logic Object Components,nada mais é do que a separação das regras de negócio da sua interface, algo recomendado em diversas tecnologias.
 
-This project is a starting point for a Flutter application.
+> ### **Streams / Sinks**
+- O conceito de stream esta relacionado com a programação assíncrona. (A tradução literal para stream seria fluxo. Pense em um stream como um fluxo assincrono de dados.), é utilizado em conjunto ao bloc para fazer todas gerência de estado da sua aplicação.
+    - Streams fornecem uma sequência assíncrona de dados;
+    - Sequências de dados incluem eventos gerados pelo usuário e leitura de dados de arquivos;
+    - Você pode processar um stream usando await for ou listen() a partir da API Stream;
+    - Os streams fornecem uma maneira de responder a erros;
+    - Existem dois tipos de streams:  single subscription(assinatura única) ou broadcast 
+    (múltiplas assinaturas);
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+> ### **Testes unitários**
+- Os testes de unidades/unitários basicamente são úteis para verificar o comportamennto de uma unica função, método ou classe, garantindo que sua aplicação continue funcionando conforme mais recursos são adicionados ou uma funcionalidade seja alterada.
+    -  Foi o utilizado a biblioteca **bloc_test** para facilitar na criação dos testes.
+    - Foi o utilizada  **Mocktail** para realizar o mock das entidades (objetos que simulam comportamentos de objetos reais de forma controlada).
+
+> ### **Injeção de dependência**
+
+-  Ele permite a criação de objetos dependentes fora de uma classe e fornece esses objetos a uma classe de diferentes maneiras. Usando DI, movemos a criação e vinculação dos objetos dependentes para fora da classe que depende deles. Isso traz uma organização bem maior e consequentemente permite testes melhores também, facilita encontrar bugs e principalmente crescer. 
+    - Foi utilizado a biblioteca **get_it** para realizar a injeção de dependência nesse projeto
+    
+> ### **Git Hooks**
+-
+
+ #### Conteúdos para estudos:    
+- [BLoC Page](https://bloclibrary.dev/#/)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
