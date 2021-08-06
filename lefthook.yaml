@@ -1,10 +1,12 @@
 pre-push:
-  parallel: false
+  parallel: false 
   commands:
     tests:
       run: flutter test
+
     linter:
       run: flutter analyze
+      
 pre-commit:
   commands:
     pretty:
