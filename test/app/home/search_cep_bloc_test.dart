@@ -12,7 +12,7 @@ void main() {
   final dio = DioMock();
   when(() => dio.get(any())).thenAnswer(
     (_) async => Response(
-      data: {},
+      data: [],
       statusCode: 200,
       requestOptions: RequestOptions(path: ''),
     ),
