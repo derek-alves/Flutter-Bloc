@@ -5,7 +5,7 @@ Projeto com a finalidade de estudar e entender melhor esses conceitos/ferramenta
 > ###  **BLoC**
 - BLoC é a sigla para Business Logic Object Components,nada mais é do que a separação das regras de negócio da sua interface, algo recomendado em diversas tecnologias.
 
-> ### **Streams / Sinks**
+> ### **Stream / Sink**
 - O conceito de stream esta relacionado com a programação assíncrona. (A tradução literal para stream seria fluxo. Pense em um stream como um fluxo assincrono de dados.), é utilizado em conjunto ao bloc para fazer todas gerência de estado da sua aplicação.
     - Streams fornecem uma sequência assíncrona de dados;
     - Sequências de dados incluem eventos gerados pelo usuário e leitura de dados de arquivos;
@@ -26,8 +26,13 @@ Projeto com a finalidade de estudar e entender melhor esses conceitos/ferramenta
     - Foi utilizado a biblioteca **get_it** para realizar a injeção de dependência nesse projeto
     
 > ### **Git Hooks**
--
+- Git hooks são scripts executados automaticamente sempre que ocorre um determinado evento em um repositório Git . Eles permitem que você personalize o comportamento interno do Git e acione ações personalizáveis ​​em pontos-chave no ciclo de vida de desenvolvimento.
+    - Foi o utilizado **lefthook** para execução dos hooks
 
- #### Conteúdos para estudos:    
-- [BLoC Page](https://bloclibrary.dev/#/)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+ #### **Conteúdos para estudos**:    
+- [BLoC](https://bloclibrary.dev/#/)
+- [bloc_test](https://pub.dev/packages/bloc_test)
+- [Mocktail](https://pub.dev/packages/mocktail)
+- [get_it](https://pub.dev/packages/get_it)
+- [LeftHook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape?utm_source=lefthook)
+- [Dart: Stream / Sink ](https://dart.dev/tutorials/language/streams)
